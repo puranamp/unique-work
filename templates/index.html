@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block head %}{{super()}}{% endblock %}
+{% block title %}Find-A-Workout{% endblock %}
+
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8" align="center">
+            <h1>Find-A-Workout</h1>
+            <p>Enter your name and workout routine, and receive one back!</p>
+            <hr>
+            <form method="POST" action="{{ url_for('index') }}">
+                <div class="form-group">
+                    {{ form.name.label }}
+                    <br>
+                    {{ form.name(aria_describedby="nameHelp", placeholder="Enter name", class="form-control", id="") }}
+                </div>
+                <div class="form-group">
+                    {{ form.routine.label }}
+                    <br>
+                    {{ form.routine(aria_describedby="routineHelp", placeholder="Enter routine", class="form-control", id="exampleFormControlTextarea1", rows="3") }}
+                </div>
+                <div class"form-group">
+                    {{ form.csrf_token() }}
+                    <br>
+                    {{ form.submit(class="btn btn-primary") }}
+                </div>
+            </form>
+            <br>
+            <br>
+            <br>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
